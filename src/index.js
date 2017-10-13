@@ -30,7 +30,7 @@ function extractRoute (route, prefix) {
     }
   }
   const currentPath = (
-    `${prefix || ''}${path.replace(/\//, '').replace(/\/:\w+(\?|\*).*/, '')}`
+    `${prefix || ''}${path.replace(/(^\/|:\w+(\?|\*))/g, '')}`
   );
 
   if (!/:|\*/.test(currentPath)) {
